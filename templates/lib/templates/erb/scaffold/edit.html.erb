@@ -1,0 +1,30 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12 col-md-10">
+        <h2><%= plural_table_name.humanize %></h2>
+        <ol class="breadcrumb">
+            <li><%%= link_to t('<%= plural_table_name.humanize %>'), <%= index_helper %>_path %></li>
+            <li class="active"><strong><%%= t('Edit') %></strong></li>
+        </ol>
+    </div>
+    <div class="col-sm-12 col-md-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5><%%= t('Edit') %> <%= singular_table_name %> <% if attributes.any?{|attribute| attribute.name == 'name'} %><%%= @<%= singular_table_name %>.name %><% else %><%%= @<%= singular_table_name %>.id %><% end %><small></small></h5>
+                <div class="ibox-tools">
+                    <div class="pull-right">
+                        <%%= link_to '<i class="fa fa-reply"></i>'.html_safe, <%= index_helper %>_path %>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <%%= render "form" %>
+            </div>
+        </div>
+    </div>
+</div>
